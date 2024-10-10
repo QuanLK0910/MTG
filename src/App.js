@@ -21,6 +21,7 @@ import CheckOut from "./customer/CheckOutPage/CheckOut";
 import CartPage from "./customer/CartPage/cartPage";
 import ServiceDetailPage from "./customer/ServiceDetailPage/ServiceDetailPage";
 import Login from "./customer/Login/Login";
+import SearchGraveInterface from "./components/SearchGraveInterface/SearchGraveInterface";
 function App() {
   return (
     <AuthProvider>
@@ -38,7 +39,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-
+          <Route path="/tim-kiem-mo" element={<SearchGraveInterface />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/dichvu" element={<ServicePage />} />
           <Route path="/chitietdichvu/:serviceId" element={<ServiceDetailPage />} />
