@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Ch
 import { AuthProvider } from "./context/AuthContext";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { ROLES } from "./utils/auth";
-import Dashboard from "./admin/dashBoard/dashboard"; // Import your components
 import OrderList from "./admin/phanViecDonHang/OrderList";
 import StaffManagement from "./admin/StaffManager/StaffManagement";
 import GraveView from "./admin/graveView/GraveView";
@@ -22,11 +21,17 @@ import CartPage from "./customer/CartPage/cartPage";
 import ServiceDetailPage from "./customer/ServiceDetailPage/ServiceDetailPage";
 import Login from "./customer/Login/Login";
 import SearchGraveInterface from "./components/SearchGraveInterface/SearchGraveInterface";
+import OrderDetails from "./staff/orderDetail/OrderDetail";
+import ProfilePage from "./staff/profilePage/ProfilePage";
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Routes>
+          {/* Staff */}
+          <Route path="/donhang" element={<OrderDetails />} />
+          <Route path="/thongtinCaNhan" element={<ProfilePage />} />
+          {/* Customer */}
           <Route path="/login" element={<Login />} />
           {/* customer */}
           <Route path="/" element={<HomePage />} />

@@ -3,7 +3,7 @@ import Sidebar from "../../components/Sidebar/sideBar";
 import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import '../homePage/HomePage.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-export default function HomePage() {
+export default function Home() {
     const statuses = [
         { id: 1, count: 10, label: "Đơn cần xác nhận" },
         { id: 2, count: 10, label: "Đơn đang xử lý" },

@@ -1,0 +1,141 @@
+.order-detail {
+    display: flex;
+    background-color: #f4f4f4;
+}
+
+.order-details {
+    margin-top: 20px;
+    background-color: lightgray;
+    height: 70px;
+    margin-left: 40px;
+    width: 75%;
+    display: inline;
+}
+
+.order-details h3 {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.order-details p {
+    margin-left: 400px;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+.order-service {
+    margin-top: 50px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-between;
+    height: 260px;
+}
+
+.order-service h3 {
+    margin-top: 31px;
+    margin-left: 58px;
+}
+
+.service-info p {
+    margin-top: -10px;
+}
+
+.service-info div p {
+    margin-left: 40px;
+    margin-top: 25px;
+    font-weight: lighter;
+}
+
+.service-info {
+    display: flex;
+    align-items: center;
+}
+
+.service-info img {
+    width: 100px;
+    margin-left: -1090px;
+    margin-top: 0px;
+}
+
+.service-quantity h3 {
+    margin-left: 5px;
+    margin-top: -140px;
+}
+
+.service-quantity {
+    margin-left: 140px;
+    margin-top: 50px;
+    line-height: 3;
+}
+
+.service-status h3 {
+    margin-top: -115px;
+    margin-left: 40px;
+}
+
+.service-status {
+    margin-top: 19px;
+    margin-left: 170px;
+    line-height: 3;
+}
+
+.complete-btn {
+    background-color: #e8c67e;
+    /* Soft yellow background */
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    /* Rounded edges to match the oval shape */
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    transition: background-color 0.3s ease;
+    margin-left: 160px;
+    margin-top: -20px;
+}
+
+.complete-btn:hover {
+    background-color: #f0c65b;
+    /* Slightly darker on hover */
+}
+
+.order-status {
+    margin-top: 50px;
+}
+
+.order-status h1 {
+    font-size: 26px;
+}
+
+.order-status p {
+    margin-top: 20px;
+    margin-left: 0px;
+    font-weight: lighter;
+}
+
+.order-summary {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 5px;
+    margin-top: -100px;
+}
+
+.order-summary p {
+    font-weight: lighter;
+}
+
+.note-input {
+    margin-top: 190px;
+    margin-left: -1070px;
+    width: 1050px;
+    height: 29px;
+}
+
+.order-summary .total {
+    font-weight: lighter;
+    margin-top: 10px;
+}
