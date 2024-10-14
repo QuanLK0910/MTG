@@ -1,6 +1,7 @@
 import { useState } from "react";
 import '../profilePage/ProfilePage.css';
 import Sidebar from "../../components/Sidebar/sideBar";
+import DatePicker from "react-datepicker";
 export default function ProfilePage() {
     const [isEditable, setIsEditable] = useState({
         email: false,
