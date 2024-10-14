@@ -23,6 +23,7 @@ import Login from "./customer/Login/Login";
 import SearchGraveInterface from "./components/SearchGraveInterface/SearchGraveInterface";
 import OrderDetails from "./staff/orderDetail/OrderDetail";
 import ProfilePage from "./staff/profilePage/ProfilePage";
+import GraveDetails from "./staff/graveDetail/GraveDetail";
 function App() {
   return (
     <AuthProvider>
@@ -31,6 +32,7 @@ function App() {
           {/* Staff */}
           <Route path="/donhang" element={<OrderDetails />} />
           <Route path="/thongtinCaNhan" element={<ProfilePage />} />
+          <Route path="/thongtinMo" element={<GraveDetails />} />
           {/* Customer */}
           <Route path="/login" element={<Login />} />
           {/* customer */}

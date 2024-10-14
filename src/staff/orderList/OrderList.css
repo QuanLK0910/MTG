@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.order-page {
+    display: flex;
+    height: 100;
+}
+
+.order-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #f7f5f3;
+}
+
+.order-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+    flex-direction: row;
+    display: flex;
+}
+
+.filter-button {
+    margin-left: 15px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    margin-right: 0px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filter-button.active {
+    background-color: #333;
+    color: white;
+}
+
+.date-filter {
+    margin-bottom: 20px;
+}
+
+.date-filter label {
+    margin-right: 10px;
+}
+
+.date-filter input[type="date"] {
+    margin-right: 350px;
+    padding: 5px;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.order-table th,
+.order-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.order-table th {
+    background-color: #f0f0f0;
+}
+
+.detail-button {
+    background-color: #f0ad4e;
+    border: none;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.detail-button:hover {
+    background-color: #ec971f;
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pagination span {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.pagination span:hover {
+    background-color: #f0f0f0;
+}
