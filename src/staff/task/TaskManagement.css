@@ -1,0 +1,282 @@
+.task-management {
+    display: flex;
+}
+
+.task-management-container {
+    padding: 20px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.task-filter {
+    display: inline;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.status-filters {
+    display: flex;
+    gap: 10px;
+}
+
+h2 {
+    margin-top: 35px;
+}
+
+.filter-btn {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background-color: #333;
+    color: white;
+}
+
+.date-picker h2 {
+    margin-top: 0px;
+}
+
+.date-picker {
+    margin-left: 0px;
+    margin-top: 25px;
+}
+
+.date-picker label {
+    margin-left: 210px;
+    margin-top: 40px;
+}
+
+.date-picker input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline;
+    margin-top: -19px;
+}
+
+.job-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.job-row-5 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    margin-left: 0px;
+    padding: 10px 20px;
+    margin-top: 19px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.job-row-4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-top: 19px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.job-row-3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-top: 19px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.job-row-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-top: 17px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.job-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+    width: 150px;
+}
+
+.job-item-1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    margin-left: -35px;
+}
+
+.label {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-left: -55px;
+    line-height: 2;
+    text-align: center;
+}
+
+.label-1 {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-left: -119px;
+    line-height: 2;
+    text-align: center;
+}
+
+.label-2 {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-left: -199px;
+    line-height: 2;
+    text-align: center;
+}
+
+.work {
+    margin-left: -58px;
+    font-weight: bold;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.value {
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    margin-top: 16px;
+    margin-left: -55px;
+}
+
+.value-2 {
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    margin-top: 16px;
+    margin-left: -198px;
+}
+
+.value-1 {
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    margin-top: 16px;
+    margin-left: -125px;
+}
+
+.label-3 {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-left: -269px;
+    line-height: 2;
+    text-align: center;
+}
+
+.value-3 {
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    margin-top: 16px;
+    margin-left: -270px;
+}
+
+.label-4 {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-left: -341px;
+    line-height: 2;
+    text-align: center;
+}
+
+.status {
+    font-size: 14px;
+    margin-left: -55px;
+    margin-top: 16px;
+    text-align: center;
+    color: #b3b3b3;
+}
+
+.status-5 {
+    font-size: 14px;
+    margin-top: 16px;
+    text-align: center;
+    margin-left: -343px;
+    color: green;
+}
+
+.status-3 {
+    font-size: 14px;
+    margin-top: 16px;
+    text-align: center;
+    margin-left: -58px;
+    color: #ff2929;
+}
+
+.status-4 {
+    font-size: 14px;
+    margin-top: 16px;
+    text-align: center;
+    margin-left: -58px;
+    color: #bba500;
+}
+
+.status-2 {
+    font-size: 14px;
+    margin-top: 16px;
+    margin-left: 20px;
+    color: #ff2929;
+}
+
+.confirm-button {
+    background-color: #f0c040;
+    border: none;
+    color: black;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-top: 20px;
+    width: 150px;
+    flex-wrap: wrap;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.confirm-button:hover {
+    background-color: #e5b630;
+}
