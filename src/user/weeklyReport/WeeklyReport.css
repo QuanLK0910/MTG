@@ -1,0 +1,68 @@
+.weekly-report {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin-top: 20px;
+    padding: 2rem 1rem;
+    flex: 1;
+}
+
+.table-container {
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.report-table th,
+.report-table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.report-table th {
+    background-color: #f5f5f5;
+}
+
+.report-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.view-report-btn {
+    background-color: #fef3c7;
+    color: #92400e;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-report-btn:hover {
+    background-color: #fde68a;
+}
+
+.date-filter {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.date-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.date-input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}

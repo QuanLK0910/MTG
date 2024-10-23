@@ -31,6 +31,7 @@ import GraveDetails from "./staff/graveDetail/GraveDetail";
 import SessionCheck from "./components/SessionCheck"; // Import the new component
 import OrderManagement from "./staff/OrderManagement/OrderManagement";
 import OrderManagementManager from "./manager/OrderManagement/OrderManagement";
+import WeeklyReport from "./user/weeklyReport/WeeklyReport";
 function App() {
 
   function AppContent() {
@@ -59,6 +60,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="/bao-cao-tuan" element={<WeeklyReport />} />
             <Route path="/tim-kiem-mo" element={<SearchGraveInterface />} />
             <Route path="/dichvu" element={<ServicePage />} />
             <Route
