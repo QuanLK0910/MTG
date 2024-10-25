@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/header';
-import './CartPage.css';
+import './cartPage.css';
 import deleteIcon from '../../assets/images/delete.png';
 import { getCartItemsByCustomerId, updateItemStatus } from "../../APIcontroller/API";
 import { useAuth } from "../../context/AuthContext";
@@ -55,11 +55,11 @@ const CartPage = () => {
 
   const handleSelectItem = async (cartId) => {
     try {
-      const updatedItems = cartItems.map(item => 
+      const updatedItems = cartItems.map(item =>
         item.cartId === cartId ? { ...item, selected: !item.selected } : item
       );
       setCartItems(updatedItems);
-      
+
       const selectedItem = updatedItems.find(item => item.cartId === cartId);
       await updateItemStatus(cartId, selectedItem.selected);
     } catch (error) {
@@ -73,7 +73,7 @@ const CartPage = () => {
       const allSelected = cartItems.every(item => item.selected);
       const updatedItems = cartItems.map(item => ({ ...item, selected: !allSelected }));
       setCartItems(updatedItems);
-      
+
       // Update status for all items
       for (const item of updatedItems) {
         await updateItemStatus(item.cartId, item.selected);
@@ -115,8 +115,8 @@ const CartPage = () => {
             <thead className='cart-table-header'>
               <tr>
                 <th>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     checked={cartItems.length > 0 && cartItems.every(item => item.selected)}
                     onChange={handleSelectAll}
                     className="select-all-checkbox"
@@ -133,8 +133,8 @@ const CartPage = () => {
               {cartItems.map((item) => (
                 <tr key={item.cartId}>
                   <td>
-                    <input 
-                      type="checkbox" 
+                    <input
+                      type="checkbox"
                       checked={item.selected}
                       onChange={() => handleSelectItem(item.cartId)}
                       className="item-checkbox"
