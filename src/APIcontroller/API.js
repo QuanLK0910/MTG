@@ -19,6 +19,7 @@ export const API_ENDPOINTS = {
   CREATE_TASK: "/Task/tasks", // Add this new endpoint
   GET_TASKS_BY_ACCOUNT: "/Task/tasks/account", // Add this new endpoint
   UPDATE_TASK_STATUS: "/Task/tasks", // Update this line
+  GET_ALL_SERVICES: "/Service/services", // Add this new endpoint
   // Add other endpoints as needed
 };
 
@@ -113,6 +114,7 @@ export const getCartItemsByCustomerId = async (customerId) => {
       {
         headers: {
           Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
         },
       }
     );
@@ -521,5 +523,77 @@ export const searchGraves = async (searchParams) => {
       error.response ? error.response.data : error.message
     );
     throw error;
+  }
+};
+
+export const getGraveById = async (martyrId) => {
+  try {
+    const token = localStorage.getItem("accessToken");
+    console.log(`Fetching grave details for ID: ${martyrId}`);
+    const response = await axios.get(`${BASE_URL}/MartyrGrave/${martyrId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log("API Response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error fetching grave details:",
+      error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
+};
+
+export const getAllServices = async () => {
+  try {
+    const token = localStorage.getItem("accessToken");
+    console.log("Fetching all services");
+    console.log("API URL:", `${BASE_URL}${API_ENDPOINTS.GET_ALL_SERVICES}`);
+
+    const response = await axios.get(
+      `${BASE_URL}${API_ENDPOINTS.GET_ALL_SERVICES}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log("API Response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error fetching all services:",
+      error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
+};
+
+export const registerGuestAccount = async (registrationData) => {
+  try {
+    const response = await fetch(`${BASE_URL}/Auth/register-account-guest`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(registrationData),
+    });
+
+    const contentType = response.headers.get("content-type");
+    if (contentType && contentType.indexOf("application/json") !== -1) {
+      // If the response is JSON, parse it
+      const data = await response.json();
+      return { success: true, data };
+    } else {
+      // If the response is not JSON, treat it as plain text
+      const text = await response.text();
+      return { success: true, message: text };
+    }
+  } catch (error) {
+    console.error('Error in registerGuestAccount:', error);
+    return { success: false, error: error.message };
   }
 };

@@ -9,7 +9,7 @@ export const loginUser = async (credentials) => {
   try {
     const response = await axios.post(`${API_BASE_URL}${LOGIN_ENDPOINT}`, 
       {
-        AccountName: credentials.accountName,
+        phoneNumber: credentials.phoneNumber,
         password: credentials.password,
       },
       {

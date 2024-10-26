@@ -43,7 +43,8 @@ import CheckoutFailPage from './customer/CheckOutFailPage/checkoutFailPage';
 import TaskDetails from './staff/TaskDetail/TaskDetail';
 import OrderHistory from './customer/OrderHistory/OrderHistory';
 import SearchResult from './customer/SearchResult/SearchResult';
-
+import ServiceListing from './customer/ServiceListing/ServiceListing';
+import Register from './customer/Register/Register';
 function AppContent() {
   const navigate = useNavigate();
 
@@ -62,11 +63,13 @@ function AppContent() {
           <Route path="/checkout-fail" element={<CheckoutFailPage />} />
           <Route path="/checkout-success" element={<CheckoutSuccessPage />} />
           <Route path="/search-results" element={<SearchResult />} />
-
+          <Route path="/chitietmo/:martyrId" element={<MyGraveDetail />} />
+          <Route path="/dichvutheoloai" element={<ServiceListing />} />
+          <Route path="/register" element={<Register />} />
 
           {/* Protected routes */}
           <Route path="/user" element={<ProtectedRoute requiredRole={ROLES.CUSTOMER}><HomePage /></ProtectedRoute>} />
-          <Route path="/mothannhan" element={<ProtectedRoute requiredRole={ROLES.CUSTOMER}><MyGraveDetail /></ProtectedRoute>} />
+          
           <Route path="/order-history" element={<ProtectedRoute requiredRole={ROLES.CUSTOMER}><OrderHistory /></ProtectedRoute>} />
           {/* Admin routes */}
           <Route path="/admin" element={<ProtectedRoute requiredRole={ROLES.ADMIN}><Dashboard /></ProtectedRoute>} />

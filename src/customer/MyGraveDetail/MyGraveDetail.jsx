@@ -1,125 +1,181 @@
-import React, { useState } from 'react';
-import './MyGraveDetail.css';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import "./MyGraveDetail.css";
+import Header from "../../components/Header/header";
+import { getGraveById } from "../../APIcontroller/API";
 
 const MyGraveDetail = () => {
-  // Sample data - in a real app, this would come from props or an API
-  const martyrDetails = {
-    name: "John Smith",
-    dateOfBirth: "1920-03-15",
-    dateOfDeath: "1945-08-20",
-    cause: "Killed in action",
-    location: "Section A, Plot 123",
-    inscription: "Greater love hath no man than this, that a man lay down his life for his friends",
-    image: "/api/placeholder/400/300" // This would be replaced with actual image URL
-  };
-
-  const maintenanceHistory = [
-    {
-      id: 1,
-      date: "2024-03-15",
-      type: "Regular Cleaning",
-      description: "Cleaned headstone and surrounding area",
-      performedBy: "James Wilson"
-    },
-    {
-      id: 2,
-      date: "2024-02-01",
-      type: "Structural Repair",
-      description: "Fixed crack in base of monument",
-      performedBy: "Robert Johnson"
-    },
-    {
-      id: 3,
-      date: "2024-01-10",
-      type: "Landscaping",
-      description: "Planted new flowers and trimmed grass",
-      performedBy: "Mary Davis"
-    }
-  ];
-
+  const navigate = useNavigate();
+  const { martyrId } = useParams();
+  const [martyrDetails, setMartyrDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    const fetchGraveDetails = async () => {
+      if (!martyrId) {
+        setError("No martyr ID provided");
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const data = await getGraveById(martyrId);
+        console.log("Fetched data:", data); // Log the fetched data
+        setMartyrDetails(data);
+      } catch (err) {
+        setError("Failed to fetch grave details. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGraveDetails();
+  }, [martyrId]);
+
   const handleImageClick = () => {
-    setSelectedImage(martyrDetails.image);
+    if (martyrDetails.images && martyrDetails.images.length > 0) {
+      setSelectedImage(martyrDetails.images[0].urlPath);
+    }
   };
 
   const closeModal = () => {
     setSelectedImage(null);
   };
 
+  const handleBookService = () => {
+    // Save martyrId to session storage
+    sessionStorage.setItem("selectedMartyrId", martyrId);
+    // Navigate to the service listing page
+    navigate("/dichvutheoloai");
+  };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
+  if (!martyrDetails) return <div>No grave details found.</div>;
+
+  const info = martyrDetails.matyrGraveInformations[0];
+
+  // Add this fake data
+  const fakeMaintenanceHistory = [
+    {
+      id: 1,
+      date: "2023-05-15",
+      type: "Vệ sinh",
+      description: "Vệ sinh tổng thể và đánh bóng bia tưởng niệm.",
+      performedBy: "Nguyễn Văn An",
+    },
+    {
+      id: 2,
+      date: "2023-08-22",
+      type: "Phục hồi",
+      description: "Sửa chữa các vết nứt nhỏ và làm mới phần khắc chữ.",
+      performedBy: "Trần Thị Bình",
+    },
+    {
+      id: 3,
+      date: "2024-01-10",
+      type: "Cảnh quan",
+      description: "Trồng hoa mới và cắt tỉa thực vật xung quanh.",
+      performedBy: "Lê Văn Cường",
+    },
+  ];
+
   return (
-    <div className="grave-detail-container">
-      <div className="grave-info">
-        <h1>Martyr's Memorial</h1>
-        
-        <div className="image-section">
-          <div className="memorial-image">
-            <img 
-              src={martyrDetails.image} 
-              alt="Memorial" 
-              onClick={handleImageClick}
-              title="Click to enlarge"
-            />
-          </div>
-        </div>
+    <>
+      <Header />
+      <div className="grave-detail-container">
+        <div className="grave-info">
+          <h1>Tưởng niệm Liệt sĩ</h1>
+          <div className="grave-info-container">
+            <div className="image-section">
+              <div className="memorial-image">
+                <img
+                  src={
+                    martyrDetails.images[0]?.urlPath ||
+                    "/api/placeholder/400/300"
+                  }
+                  alt="Bia tưởng niệm"
+                  onClick={handleImageClick}
+                  title="Nhấp để phóng to"
+                />
+              </div>
+            </div>
 
-        <div className="detail-section">
-          <h2>Personal Information</h2>
-          <div className="info-grid">
-            <div className="info-item">
-              <label>Name:</label>
-              <span>{martyrDetails.name}</span>
-            </div>
-            <div className="info-item">
-              <label>Date of Birth:</label>
-              <span>{martyrDetails.dateOfBirth}</span>
-            </div>
-            <div className="info-item">
-              <label>Date of Death:</label>
-              <span>{martyrDetails.dateOfDeath}</span>
-            </div>
-            <div className="info-item">
-              <label>Cause:</label>
-              <span>{martyrDetails.cause}</span>
-            </div>
-            <div className="info-item">
-              <label>Que quan:</label>
-              <span>{martyrDetails.location}</span>
+            <div className="detail-section">
+              <h2>Thông tin cá nhân</h2>
+              <div className="info-grid">
+                <div className="info-item">
+                  <label>Tên:</label>
+                  <span>{info.name}</span>
+                </div>
+                <div className="info-item">
+                  <label>Bí danh:</label>
+                  <span>{info.nickName}</span>
+                </div>
+                <div className="info-item">
+                  <label>Chức danh:</label>
+                  <span>{info.position}</span>
+                </div>
+                <div className="info-item">
+                  <label>Quê quán:</label>
+                  <span>{info.homeTown}</span>
+                </div>
+                <div className="info-item">
+                  <label>Ngày sinh:</label>
+                  <span>{new Date(info.dateOfBirth).toLocaleDateString()}</span>
+                </div>
+                <div className="info-item">
+                  <label>Ngày mất:</label>
+                  <span>
+                    {new Date(info.dateOfSacrifice).toLocaleDateString()}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-          
+
           <div className="inscription">
-            <h3>Inscription</h3>
-            <p>{martyrDetails.inscription}</p>
+            <h3>Huân chương/ Chiến công</h3>
+            <p>{info.medal}</p>
+          </div>
+          <div className="service-button-container">
+            <button className="book-service-button" onClick={handleBookService}>
+              Đặt dịch vụ
+            </button>
           </div>
         </div>
-
         <div className="maintenance-section">
-          <h2>Maintenance History</h2>
+          <h2>Lịch sử bảo trì</h2>
           <div className="maintenance-list">
-            {maintenanceHistory.map(record => (
+            {fakeMaintenanceHistory.map((record) => (
               <div key={record.id} className="maintenance-item">
                 <div className="maintenance-header">
                   <span className="maintenance-date">{record.date}</span>
                   <span className="maintenance-type">{record.type}</span>
                 </div>
                 <p className="maintenance-description">{record.description}</p>
-                <span className="maintenance-performer">Performed by: {record.performedBy}</span>
+                <span className="maintenance-performer">
+                  Thực hiện bởi: {record.performedBy}
+                </span>
               </div>
             ))}
           </div>
         </div>
-      </div>
 
-      {selectedImage && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content">
-            <img src={selectedImage} alt="Memorial - Large view" />
-            <button className="modal-close" onClick={closeModal}>×</button>
+        {selectedImage && (
+          <div className="modal-overlay" onClick={closeModal}>
+            <div className="modal-content">
+              <img src={selectedImage} alt="Memorial - Large view" />
+              <button className="modal-close" onClick={closeModal}>
+                ×
+              </button>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 
