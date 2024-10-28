@@ -50,6 +50,7 @@ import ServiceListing from './customer/ServiceListing/ServiceListing';
 import Register from './customer/Register/Register';
 import RelativeGrave from './customer/RelaticeGrave/RelativeGrave';
 import OrderDetailCus from './customer/OrderDetailCus/OrderDetailCus';
+import ProfilePage from './staff/ProfilePage/ProfilePage';
 function AppContent() {
   const navigate = useNavigate();
 
@@ -58,6 +59,7 @@ function AppContent() {
       <SessionCheck>
         <Routes>
           {/* Public routes */}
+          <Route path='/profile' element={<ProfilePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/tim-kiem-mo" element={<SearchGraveInterface />} />
