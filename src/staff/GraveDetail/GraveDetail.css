@@ -1,0 +1,117 @@
+.grave-detail {
+    display: flex;
+    background-color: white;
+}
+
+.grave-header {
+    display: inline;
+    align-items: center;
+}
+
+.grave-details {
+    height: 130vh;
+}
+
+.grave-image {
+    width: 324px;
+    height: 339px;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.grave-header h3 {
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.grave-header p {
+    margin-left: 52px;
+    margin-top: 30px;
+}
+
+.grave-detail-infor {
+    margin-left: 415px;
+    margin-top: -480px;
+}
+
+.grave-detail-infor p {
+    line-height: 3;
+}
+
+.grave-status-form {
+    margin-top: 140px;
+    margin-left: -475px;
+    justify-content: space-between;
+    line-height: 2.5;
+}
+
+.grave-detail-right {
+    margin-left: 890px;
+    margin-top: -258px;
+}
+
+.grave-detail-right p {
+    line-height: 5.6;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #dca15e;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 600px;
+}
+
+button:hover {
+    background-color: #bf8b4c;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.service-history {
+    margin-top: 0px;
+    margin-left: -840px;
+}
+
+.service-history table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+.service-history th {
+    font-weight: lighter;
+}
+
+.service-history th,
+td {
+    padding: 12px;
+    text-align: center;
+}
+
+.service-history th {
+    background-color: white
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pagination span {
+    margin-left: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.pagination span:hover {
+    background-color: #f0f0f0;
+}
