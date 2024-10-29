@@ -53,6 +53,7 @@ import Register from './customer/Register/Register';
 import RelativeGrave from './customer/RelaticeGrave/RelativeGrave';
 import OrderDetailCus from './customer/OrderDetailCus/OrderDetailCus';
 import UserProfile from './customer/UserProfile/UserProfile';
+import ProfilePage from './staff/ProfilePage/ProfilePage';
 function AppContent() {
   const navigate = useNavigate();
 
