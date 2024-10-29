@@ -498,7 +498,7 @@ export const searchGraves = async (searchParams) => {
   try {
     const token = localStorage.getItem("accessToken");
     console.log("Searching graves with params:", searchParams);
-    
+
     const queryParams = new URLSearchParams({
       Name: searchParams.name || '',
       YearOfBirth: searchParams.birthYear || '',
@@ -603,7 +603,7 @@ export const getOrderDetails = async (orderId) => {
   try {
     const token = localStorage.getItem("accessToken");
     console.log(`Fetching order details for ID: ${orderId}`);
-    
+
     const response = await axios.get(
       `${BASE_URL}${API_ENDPOINTS.GET_ORDER_DETAILS}/${orderId}`,
       {
@@ -612,7 +612,7 @@ export const getOrderDetails = async (orderId) => {
         },
       }
     );
-    
+
     console.log("Order details API Response:", response.data);
     return response.data;
   } catch (error) {
@@ -650,37 +650,37 @@ export const getAllStaff = async (page = 1, pageSize = 10) => {
 
 // Add this new function
 export const updateAccountStatus = async (accountId) => {
-    try {
-        const token = localStorage.getItem("accessToken");
-        console.log(`Updating status for account ID: ${accountId}`);
-        
-        const response = await axios.put(
-            `${BASE_URL}${API_ENDPOINTS.UPDATE_ACCOUNT_STATUS}/${accountId}`,
-            null,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                },
-            }
-        );
+  try {
+    const token = localStorage.getItem("accessToken");
+    console.log(`Updating status for account ID: ${accountId}`);
 
-        console.log("Status update response:", response.data);
-        return response.data;
-    } catch (error) {
-        console.error(
-            "Error updating account status:",
-            error.response ? error.response.data : error.message
-        );
-        throw error;
-    }
+    const response = await axios.put(
+      `${BASE_URL}${API_ENDPOINTS.UPDATE_ACCOUNT_STATUS}/${accountId}`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    console.log("Status update response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error updating account status:",
+      error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
 };
 
-export const  getAllGraves = async (page = 1, pageSize = 5) => {
+export const getAllGraves = async (page = 1, pageSize = 5) => {
   try {
     const token = localStorage.getItem("accessToken");
     console.log("Fetching graves with pagination");
-    
+
     const response = await axios.get(
       `${BASE_URL}/MartyrGrave?page=${page}&pageSize=${pageSize}`,
       {
@@ -689,7 +689,7 @@ export const  getAllGraves = async (page = 1, pageSize = 5) => {
         },
       }
     );
-    
+
     console.log("Graves API Response:", response.data);
     return response.data; // This should return the object with graveList and totalPage
   } catch (error) {
