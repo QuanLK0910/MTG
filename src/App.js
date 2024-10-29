@@ -50,6 +50,7 @@ import ServiceListing from './customer/ServiceListing/ServiceListing';
 import Register from './customer/Register/Register';
 import RelativeGrave from './customer/RelaticeGrave/RelativeGrave';
 import OrderDetailCus from './customer/OrderDetailCus/OrderDetailCus';
+import UserProfile from './customer/UserProfile/UserProfile';
 function AppContent() {
   const navigate = useNavigate();
 
