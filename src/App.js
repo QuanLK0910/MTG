@@ -54,6 +54,7 @@ import RelativeGrave from './customer/RelaticeGrave/RelativeGrave';
 import OrderDetailCus from './customer/OrderDetailCus/OrderDetailCus';
 import UserProfile from './customer/UserProfile/UserProfile';
 import ProfilePage from './staff/ProfilePage/ProfilePage';
+import TaskManagement from './staff/Task/TaskManagement';
 function AppContent() {
   const navigate = useNavigate();
 
@@ -62,6 +63,7 @@ function AppContent() {
       <SessionCheck>
         <Routes>
           {/* Public routes */}
+          <Route path='/task' element={<TaskManagement />} />
           <Route path='/profile' element={<ProfilePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<HomePage />} />
@@ -106,7 +108,7 @@ function AppContent() {
           <Route path="/danhsachdonhang-staff" element={<ProtectedRoute requiredRole={ROLES.STAFF}><TaskList /></ProtectedRoute>} />
           <Route path="/task-detail/:taskId" element={<ProtectedRoute requiredRole={ROLES.STAFF}><TaskDetails /></ProtectedRoute>} />
           <Route path="/profilestaff-staff" element={<ProtectedRoute requiredRole={[ROLES.STAFF]}><ProfileStaff /></ProtectedRoute>} />
-          
+
 
         </Routes>
       </SessionCheck>
