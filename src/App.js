@@ -39,7 +39,7 @@ import HomePage from "./customer/homePage/homePage";
 import MyGraveDetail from "./customer/MyGraveDetail/MyGraveDetail";
 import ServicePage from "./customer/ServicePage/ServicePage";
 import CheckOut from "./customer/CheckOutPage/CheckOut";
-import CartPage from "./customer/CartPage/cartPage";
+import CartPage from "./customer/CartPage/CartPage";
 import ServiceDetailPage from "./customer/ServiceDetailPage/ServiceDetailPage";
 import Login from "./customer/Login/Login";
 import SearchGraveInterface from './components/SearchGraveInterface/SearchGraveInterface';

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from '../../components/Header/header';
-import './cartPage.css';
+import './CartPage.css';
 import deleteIcon from '../../assets/images/delete.png';
 import { getCartItemsByCustomerId, updateItemStatus, deleteCartItem } from "../../APIcontroller/API";
 import { useAuth } from "../../context/AuthContext";
@@ -52,7 +52,7 @@ const CartPage = () => {
     if (!isAuthLoading && user?.accountId) {
       fetchCartItems();
     } else if (!isAuthLoading && !user) {
-      
+
       setLoading(false);
     }
   }, [user, isAuthLoading]);
@@ -137,7 +137,7 @@ const CartPage = () => {
   return (
     <div className="cart-page-wrapper">
       <Header />
-      <AlertMessage 
+      <AlertMessage
         open={alertOpen}
         handleClose={handleAlertClose}
         severity={alertSeverity}
