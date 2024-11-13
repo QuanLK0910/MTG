@@ -55,6 +55,7 @@ import OrderDetailCus from './customer/OrderDetailCus/OrderDetailCus';
 import UserProfile from './customer/UserProfile/UserProfile';
 import ProfilePage from './staff/ProfilePage/ProfilePage';
 import TaskManagement from './staff/Task/TaskManagement';
+import DataEntryForm from './staff/Order/Order';
 function AppContent() {
   const navigate = useNavigate();
 
@@ -63,6 +64,7 @@ function AppContent() {
       <SessionCheck>
         <Routes>
           {/* Public routes */}
+          <Route path='/order' element={<DataEntryForm />} />
           <Route path='/task' element={<TaskManagement />} />
           <Route path='/profile' element={<ProfilePage />} />
           <Route path="/login" element={<Login />} />
