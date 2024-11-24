@@ -39,7 +39,7 @@ import HomePage from "./customer/homePage/homePage";
 import MyGraveDetail from "./customer/MyGraveDetail/MyGraveDetail";
 import ServicePage from "./customer/ServicePage/ServicePage";
 import CheckOut from "./customer/CheckOutPage/CheckOut";
-import CartPage from "./customer/CartPage/CartPage";
+import CartPage from "./customer/CartPage/cartPage";
 import ServiceDetailPage from "./customer/ServiceDetailPage/ServiceDetailPage";
 import Login from "./customer/Login/Login";
 import SearchGraveInterface from './components/SearchGraveInterface/SearchGraveInterface';
@@ -56,6 +56,7 @@ import UserProfile from './customer/UserProfile/UserProfile';
 import ProfilePage from './staff/ProfilePage/ProfilePage';
 import TaskManagement from './staff/Task/TaskManagement';
 import DataEntryForm from './staff/Order/Order';
+import MartyrsGravesIntro from './customer/Introduction/MartyrsGravesIntro';
 function AppContent() {
   const navigate = useNavigate();
 
@@ -80,6 +81,7 @@ function AppContent() {
           <Route path="/chitietmo/:martyrId" element={<MyGraveDetail />} />
           <Route path="/dichvutheoloai" element={<ServiceListing />} />
           <Route path="/register" element={<Register />} />
+          <Route path='/gioi-thieu' element={<MartyrsGravesIntro />} />
           <Route path="/relative-grave" element={<RelativeGrave />} />
           {/* Protected routes */}
           <Route path="/user" element={<ProtectedRoute requiredRole={ROLES.CUSTOMER}><HomePage /></ProtectedRoute>} />

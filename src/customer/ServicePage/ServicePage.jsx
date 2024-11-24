@@ -71,8 +71,8 @@ const ServicePage = () => {
       <div className="service-container">
         <h1>Dịch vụ đang có sẵn</h1>
         {services.map((category, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className="change-planner-service"
             id={`category-${category.categoryName}`}
           >
@@ -80,8 +80,8 @@ const ServicePage = () => {
             <div className="sell-service-grid">
               {categoryServices[category.categoryId]?.map(
                 (service, serviceIndex) => (
-                  <Link 
-                    key={serviceIndex} 
+                  <Link
+                    key={serviceIndex}
                     to={`/chitietdichvu/${service.serviceId}`}
                     style={{ textDecoration: 'none', color: 'inherit' }}
                   >
